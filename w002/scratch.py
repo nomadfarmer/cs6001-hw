@@ -1,16 +1,4 @@
-x = 23
-epsilon = 0.01
-step = 0.1
-guess = 0.0
-
-while abs(guess**2-x) >= epsilon:
-    if guess <= x:
-        guess += step
-    else:
-        break
-
-if abs(guess**2 - x) >= epsilon:
-    print ('guess: '+ str(guess))
-    print('failed')
-else:
-    print('succeeded: ' + str(guess))
+name = input("What's your name? ")
+print("Nice to meet you " + name + "!")
+age = input("Your age? ")
+print("So, you are already " + str(age) + " years old, " + name + "!")
