@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 2018-06-28 -- Joby/Nomadfarmer
-Problem set 2 for the edX 6.00.1x MIT intro to CS courseself.
+Problem set 3 for the edX 6.00.1x MIT intro to CS courseself.
 This code will be given variables for a credit card loan by the testing
 suite.
 
@@ -18,7 +18,10 @@ annualInterestRate = 0.2
 #Actual code to paste starts here.
 
 def main():
-    epsilon = 0.25
+    epsilon = 0.25 #most we're willing to overpay in a year. It's hard to tell
+                   #what a reasonable value is. Too picky, and we risk finding
+                   #an infinite loop. 25 cents seems to work for me, but I don't
+                   #even know how to test for edge cases.
     curBalance = balance
     upperLimit = balance * (1 + annualInterestRate)
     lowerLimit = balance / 12
