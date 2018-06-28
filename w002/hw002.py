@@ -1,16 +1,32 @@
 #!/usr/bin/env python3
 """
 2018-06-28 -- Joby/Nomadfarmer
-Problem set 1 for the edX 6.00.1x MIT intro to CS courseself.
+Problem set 2 for the edX 6.00.1x MIT intro to CS courseself.
 This code will be given variables for a credit card loan by the testing
-suite. It will calculate the remaining balance after 12 months of paying
-the mininum paymentself.
-Variables passed include: balance, annualInterestRate, and monthlyPaymentRate.
+suite.
+
+Variables passed include: balance, annualInterestRate.
+
+This time, the goal is to find the lowest fixed payment (same payment each month)
+which will pay off the debt within one year.
+
 """
 #Variables for testing
-balance = 484
+balance = 3926
 annualInterestRate = 0.2
-monthlyPaymentRate = 0.04
+
+def main():
+    curBalance = balance
+    #payments must be multiples of 10. We're starting our search at $10. I'd start
+    #at the minimum monthly payment, but the specs on this problem don't mention a
+    #minimum monthly payment rate.
+
+    fixedPayment = 0
+    while curBalance > 0:
+        fixedPayment += 10
+        curBalance = payAYear(balance, fixedPayment)
+
+    print("Lowest Payment:", fixedPayment)
 
 
 #Actual code to paste starts here.
@@ -35,6 +51,4 @@ def payAYear(startBalance, monthlyPayment = -1):
         newBalance = payAMonth(newBalance, monthlyPayment if monthlyPayment > 0 else newBalance * monthlyPaymentRate)
     return newBalance
 
-#Main code starts here
-curBalance = payAYear(balance)
-print("Remaining balance:", round(curBalance, 2))
+main()
