@@ -1,4 +1,5 @@
-name = input("What's your name? ")
-print("Nice to meet you " + name + "!")
-age = input("Your age? ")
-print("So, you are already " + str(age) + " years old, " + name + "!")
+def a(x):
+    print (x)
+
+b = 23
+a(b if b > 0 else 5)
