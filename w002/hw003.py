@@ -8,29 +8,32 @@ suite.
 Variables passed include: balance, annualInterestRate.
 
 This time, the goal is to find the lowest fixed payment (same payment each month)
-which will pay off the debt within one year. We'll be looking for the lowest
-multiple of $10 which will give a balance <= 0 after 12 months.
+which will pay off the debt within one year.
 
 """
 #Variables for testing
-balance = 3926
+balance = 320000
 annualInterestRate = 0.2
 
-def main():
-    curBalance = balance
-    #payments must be multiples of 10. We're starting our search at $10. I'd start
-    #at the minimum monthly payment, but the specs on this problem don't mention a
-    #minimum monthly payment rate.
+#Actual code to paste starts here.
 
-    fixedPayment = 0
-    while curBalance > 0:
-        fixedPayment += 10
+def main():
+    epsilon = 0.25
+    curBalance = balance
+    upperLimit = balance * (1 + annualInterestRate)
+    lowerLimit = balance / 12
+
+    while curBalance < -epsilon or curBalance > 0:
+        fixedPayment = round((upperLimit + lowerLimit) / 2, 2) # In the real world, we can't pay partial cents.
         curBalance = payAYear(balance, fixedPayment)
+        if curBalance > 0:
+            lowerLimit = fixedPayment
+        elif curBalance < -epsilon:
+            upperLimit = fixedPayment
 
     print("Lowest Payment:", fixedPayment)
 
 
-#Actual code to paste starts here.
 def payAMonth(startBalance, payment):
     """
     Takes the balance at the beginning of the month, subtracts the payment,
