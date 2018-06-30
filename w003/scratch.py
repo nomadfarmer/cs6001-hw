@@ -1,7 +1,16 @@
-def scope_test(L):
-    for i in range(len(L)):
-        L[i] = 'pwnd'
 
-my_list = [3, 1, 4, 1, 5, 9]
-scope_test(my_list)
-print(my_list)
+def main():
+    """
+    Learning how to break things
+    """
+
+def test_inc():
+    assert(inc(3) == 4)
+    assert(inc(5) == 6)
+    assert(inc(1000000) == 1000001)
+
+def inc(x:int) -> int:
+    return x+1
+
+if __name__ == "__main__":
+    main()

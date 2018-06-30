@@ -11,13 +11,14 @@ __license__ = "MIT"
 
 
 def main():
+    print("Not a command line program. Sorry.")
+
+def test_1():
     d = {'b': [1], 'c': [2, 3, 4], 'd': [5, 6]}
-
-    if biggest(d) == 'c':
-        print("good")
-    else:
-        print("bad")
-
+    assert(biggest(d) == 'c')
+def test_2():
+    d = {'b': [1], 'c': [2, 3, 4], 'd': [5, 6], 'e': [1, 1, 1, 1, 1, 1, 1]}
+    assert(biggest(d) == 'e')
 
 def biggest(a_dict):
     longest_key = None

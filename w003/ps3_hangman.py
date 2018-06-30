@@ -89,8 +89,6 @@ def getAvailableLetters(lettersGuessed):
         avail_letters = avail_letters.replace(l, '')
     return avail_letters
 
-print(getAvailableLetters(['m', 'n', 'o', 'p', 'q', 'r', 's']))
-
 def hangman(secretWord):
     '''
     secretWord: string, the secret word to guess.
