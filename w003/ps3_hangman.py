@@ -2,6 +2,10 @@
 """
 Hangman game. loadWords was came pre-written, but each problem in this problem
 set will have me writing the other functions. Docstrings came pre-written as well.
+
+
+NOTE: The grader doesn't accept f strings as valid syntax. I edited all lines
+with f" in my submission, but kept them here because I prefer the style.
 """
 
 # Hangman game
@@ -89,7 +93,7 @@ def getAvailableLetters(lettersGuessed):
         avail_letters = avail_letters.replace(l, '')
     return avail_letters
 
-def hangman(secretWord):
+def hangman(secret_word):
     '''
     secretWord: string, the secret word to guess.
 
@@ -109,9 +113,36 @@ def hangman(secretWord):
 
     Follows the other limitations detailed in the problem write-up.
     '''
-    # FILL IN YOUR CODE HERE...
-    return None
+    guesses = 8
+    letters_guessed = []
 
+    print("Welcome to the game, Hangman!")
+    print(f"I am thinking of a word that is {len(secret_word)} letters long.")
+
+    while not isWordGuessed(secret_word, letters_guessed) and guesses > 0:
+        print("-"*13)
+        print(f"You have {guesses} guesses left.")
+        print("Available letters: " + getAvailableLetters(letters_guessed))
+        guess = input("Please guess a letter: ").lower()
+        if len(guess) != 1 or not guess.isalpha():
+            print("That is not a valid guess. Please try again.")
+        elif guess in letters_guessed:
+            board = getGuessedWord(secret_word, letters_guessed)
+            print(f"Oops! You've already guessed that letter: {board}")
+        else:
+            letters_guessed.append(guess)
+            board = getGuessedWord(secret_word, letters_guessed)
+
+            if guess not in secret_word:
+                guesses -= 1
+                print(f"Oops! That letter is not in my word: {board}")
+            else:
+                print(f"Good Guess: {board}")
+    print("-"*13)
+    if guesses:
+        print("Congratulations, you won!")
+    else:
+        print(f"Sorry, you ran out of guesses. The word was {secret_word}.")
 
 
 
@@ -119,5 +150,5 @@ def hangman(secretWord):
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
 
-# secretWord = chooseWord(wordlist).lower()
-# hangman(secretWord)
+secretWord = chooseWord(wordlist).lower()
+hangman(secretWord)
