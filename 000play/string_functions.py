@@ -13,7 +13,7 @@ def test_used_while_coding():
     assert(get_word('joby the slightly magnificent',9)=='slightly')
     assert(get_word('joby the slightly magnificent',18)=='magnificent')
 
-    assert(to_title('joby the slightly magnificent')== 'Joby the Slightly Magnificent')
+    assert(to_title('joby the slightly magnificent')== 'Joby The Slightly Magnificent')
 
     assert(is_alpha('abcXYZ'))
     assert(not is_alpha('ABC '))
