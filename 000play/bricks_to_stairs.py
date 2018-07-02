@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import sys
 
 """
 Given n amount of bricks, you have to see how many possible staircases you can
@@ -32,7 +33,6 @@ Stored data will be in a dict of dicts called perms[bricks][max_height].
 e.g. perms[9][5] will store the number of stairs that can be built with 9
 bricks such that the heighest level is 5 or less.
 """
-
 def build_stairs(n):
     perms = {0: {0: 1},          # Saved permutations. Loading it with base
              1: {1: 1},          # cases up to 2.
@@ -49,8 +49,9 @@ def build_stairs(n):
             max_height = top_stair - 1
 
             if max_height >= second_stair_bricks:
-                all_second_perms = perms[second_stair_bricks][max(perms[second_stair_bricks])]
-                current_perms[top_stair] = all_second_perms
+                # all_second_perms = perms[second_stair_bricks][max(perms[second_stair_bricks])]
+                # current_perms[top_stair] = all_second_perms
+                current_perms[top_stair] = perms[second_stair_bricks][second_stair_bricks]
             elif max_height in perms[second_stair_bricks]:
                 current_perms[top_stair] = perms[second_stair_bricks][max_height]
             else:
@@ -67,6 +68,7 @@ def build_stairs(n):
         for h in heights:
             total_perms += current_perms[h]
             perms[total_bricks][h] = total_perms
+    print(f"perms size for n = {n} is : {sys.getsizeof(perms)}")
     return perms[n][n]
 
 def test_build_stairs_0_to_6():
@@ -140,5 +142,11 @@ def test_build_stairs_750():
 def test_build_stairs_1000():
     assert(build_stairs(1000) == 8635565795744155161506)
 
+def main():
+    build_stairs(200)
+    build_stairs(1000)
+
+if __name__ == "__main__":
+    main()
 # def test_build_stairs_5000():
 #     assert(build_stairs(5000) == 15988884521431077020247618131907553242282546626679512)
