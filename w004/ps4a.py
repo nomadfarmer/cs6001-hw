@@ -151,7 +151,12 @@ def updateHand(hand, word):
     hand: dictionary (string -> int)
     returns: dictionary (string -> int)
     """
-    
+    new_hand = hand.copy()
+    for l in word:
+        new_hand[l] -= 1
+        if new_hand[l] == 0:
+            del new_hand[l]
+    return new_hand
 
 
 #
