@@ -4,9 +4,7 @@ try:
     c = 19/0
 except IndexError:
     print("exception")
-else: 
+else:
     print("else")
 finally:
     print("finally")
-
-
