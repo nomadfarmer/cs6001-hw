@@ -82,71 +82,72 @@ def test_build_stairs_0_to_6():
     for t in answers.keys():
         assert(build_stairs(t) == answers[t])
 
-def test_build_stairs_10():
-    assert(build_stairs(10) == 10)
+#def test_build_stairs_10():
+#    assert(build_stairs(10) == 10)
+#
+#def test_build_stairs_15():
+#    assert(build_stairs(15) == 27)
+#
+#def test_build_stairs_20():
+#    assert(build_stairs(20) == 64)
+#
+#def test_build_stairs_30():
+#    assert(build_stairs(30) == 296)
+#
+#def test_build_stairs_40():
+#    assert(build_stairs(40) == 1113)
+#
+#def test_build_stairs_50():
+#    assert(build_stairs(50) == 3658)
+#
+#def test_build_stairs_60():
+#    assert(build_stairs(60) == 10880)
+#
+#def test_build_stairs_70():
+#    assert(build_stairs(70) == 29927)
+#
+#def test_build_stairs_80():
+#    assert(build_stairs(80) == 77312)
+#
+#def test_build_stairs_90():
+#    assert(build_stairs(90) == 189586)
+#
+#def test_build_stairs_100():
+#    assert(build_stairs(100) == 444793)
+#
+#def test_build_stairs_125():
+#    assert(build_stairs(125) == 3207086)
+#
+#def test_build_stairs_150():
+#    assert(build_stairs(150) == 19406016)
+#
+#def test_build_stairs_175():
+#    assert(build_stairs(175) == 102614114)
+#
+#def test_build_stairs_200():
+#    assert(build_stairs(200) == 487067746)
+#
+#def test_build_stairs_300():
+#    assert(build_stairs(300) == 114872472064)
+#
+#def test_build_stairs_400():
+#    assert(build_stairs(400) == 11962163400706)
+#
+#def test_build_stairs_500():
+#    assert(build_stairs(500) == 732986521245024)
+#
+#def test_build_stairs_750():
+#    assert(build_stairs(750) == 4923988648388880384)
+#
+#def test_build_stairs_1000():
+#    assert(build_stairs(1000) == 8635565795744155161506)
+#
 
-def test_build_stairs_15():
-    assert(build_stairs(15) == 27)
-
-def test_build_stairs_20():
-    assert(build_stairs(20) == 64)
-
-def test_build_stairs_30():
-    assert(build_stairs(30) == 296)
-
-def test_build_stairs_40():
-    assert(build_stairs(40) == 1113)
-
-def test_build_stairs_50():
-    assert(build_stairs(50) == 3658)
-
-def test_build_stairs_60():
-    assert(build_stairs(60) == 10880)
-
-def test_build_stairs_70():
-    assert(build_stairs(70) == 29927)
-
-def test_build_stairs_80():
-    assert(build_stairs(80) == 77312)
-
-def test_build_stairs_90():
-    assert(build_stairs(90) == 189586)
-
-def test_build_stairs_100():
-    assert(build_stairs(100) == 444793)
-
-def test_build_stairs_125():
-    assert(build_stairs(125) == 3207086)
-
-def test_build_stairs_150():
-    assert(build_stairs(150) == 19406016)
-
-def test_build_stairs_175():
-    assert(build_stairs(175) == 102614114)
-
-def test_build_stairs_200():
-    assert(build_stairs(200) == 487067746)
-
-def test_build_stairs_300():
-    assert(build_stairs(300) == 114872472064)
-
-def test_build_stairs_400():
-    assert(build_stairs(400) == 11962163400706)
-
-def test_build_stairs_500():
-    assert(build_stairs(500) == 732986521245024)
-
-def test_build_stairs_750():
-    assert(build_stairs(750) == 4923988648388880384)
-
-def test_build_stairs_1000():
-    assert(build_stairs(1000) == 8635565795744155161506)
+def test_build_stairs_5000():
+    assert(build_stairs(5000) == 15988884521431077020247618131907553242282546626679512)
 
 def main():
-    build_stairs(200)
-    build_stairs(1000)
+    print(build_stairs(5000))
 
 if __name__ == "__main__":
     main()
-# def test_build_stairs_5000():
-#     assert(build_stairs(5000) == 15988884521431077020247618131907553242282546626679512)
