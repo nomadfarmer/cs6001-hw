@@ -10,3 +10,5 @@ def p(n, k=None):
             else:
                 for j in (p(n-i, i)):
                     yield (i,) + j
+
+print(p(10))
