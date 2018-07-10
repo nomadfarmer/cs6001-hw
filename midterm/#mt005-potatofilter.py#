@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+
+def applyF_filterG(L, f, g):
+    """
+    L: list of ints
+    f: function which takes an int and returns another int
+    g: function which takes an int and returns bool
+
+    This function will mutate L so that it only contains items where
+    g(f(item)) is True, and return the largest value in the remaining list.
+    """
+    L_temp = L[:]
+    for i in L_temp:
+        if g(f(i)) == False:
+            L.remove(i)
+    if L:
+        return max(L)
+    else:
+        return -1
+
+    
+# def test_spec():
+#     def f(i):
+#         return i + 2L_temp = L[:]
+    for i in L_temp:
+        if g(f(i)) == False:
+            L.remove(i)
+    if L:
+        return max(L)
+    else:
+        return -1
+#     def g(i):
+#         return i > 5
+#     L = [0, -10, 5, 6, -4]
+#     # assert(applyF_filterG(L, f, g) == 6)
+#     # assert(L == [5, 6])
+#     print(applyF_filterG(L, f, g))
+#     print(L)
+
+# def test_spec():
+#     def f(i):
+#         return i - 20
+#     def g(i):
+#         return i % 2 == False
+#     L = [1,2,3,4,5,6,7,8,9,10]
+#     # assert(applyF_filterG(L, f, g) == 6)
+#     # assert(L == [5, 6])
+#     print(applyF_filterG(L, f, g))
+#     print(L)
+
+test_spec()

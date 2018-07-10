@@ -49,8 +49,6 @@ def build_stairs(n):
             max_height = top_stair - 1
 
             if max_height >= second_stair_bricks:
-                # all_second_perms = perms[second_stair_bricks][max(perms[second_stair_bricks])]
-                # current_perms[top_stair] = all_second_perms
                 current_perms[top_stair] = perms[second_stair_bricks][second_stair_bricks]
             elif max_height in perms[second_stair_bricks]:
                 current_perms[top_stair] = perms[second_stair_bricks][max_height]
@@ -71,16 +69,16 @@ def build_stairs(n):
     print(f"perms size for n = {n} is : {sys.getsizeof(perms)}")
     return perms[n][n]
 
-def test_build_stairs_0_to_6():
-    answers = {0: 1,
-               1: 1,
-               2: 1,
-               3: 2,
-               4: 2,
-               5: 3,
-               6: 4}
-    for t in answers.keys():
-        assert(build_stairs(t) == answers[t])
+# def test_build_stairs_0_to_6():
+#     answers = {0: 1,
+#                1: 1,
+#                2: 1,
+#                3: 2,
+#                4: 2,
+#                5: 3,
+#                6: 4}
+#     for t in answers.keys():
+#         assert(build_stairs(t) == answers[t])
 
 #def test_build_stairs_10():
 #    assert(build_stairs(10) == 10)
